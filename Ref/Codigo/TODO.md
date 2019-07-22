@@ -1,0 +1,1 @@
+Update plotting design to separate Full OHLC from Trimmed Typical (plot both at the same time)

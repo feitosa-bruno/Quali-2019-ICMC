@@ -41,35 +41,35 @@
 \newcommand{\email}[1]{\\\mbox{}\\[-6pt]\footnotesize\texttt{#1}}
 \renewcommand{\and}{, }
 
-% to avoid [...] in the bibliography
-% \item[] instead of \item[\@biblabel{#1}\hfill]
-\def\@lbibitem[#1]#2{\item[]\if@filesw
-      {\let\protect\noexpand
-       \immediate
-       \write\@auxout{\string\bibcite{#2}{#1}}}\fi\ignorespaces}
-\renewenvironment{thebibliography}[1]
-     {\section*{\refname
-        \@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}}%
-      \list{\@biblabel{\@arabic\c@enumiv}}%
-           {\settowidth\labelwidth{\@biblabel{#1}}%
-            \leftmargin\labelwidth
-            \advance\leftmargin\labelsep
-            %% changed!
-               \itemindent -\leftmargin
-               \itemsep 6pt
-            %%%%%%%%%%%
-            \@openbib@code
-            \usecounter{enumiv}%
-            \let\p@enumiv\@empty
-            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
-      \sloppy
-      \clubpenalty4000
-      \@clubpenalty \clubpenalty
-      \widowpenalty4000%
-      \sfcode`\.\@m}
-     {\def\@noitemerr
-       {\@latex@warning{Empty `thebibliography' environment}}%
-      \endlist}
+% % to avoid [...] in the bibliography
+% % \item[] instead of \item[\@biblabel{#1}\hfill]
+% \def\@lbibitem[#1]#2{\item[]\if@filesw
+%       {\let\protect\noexpand
+%        \immediate
+%        \write\@auxout{\string\bibcite{#2}{#1}}}\fi\ignorespaces}
+% \renewenvironment{thebibliography}[1]
+%      {\section*{\refname
+%         \@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}}%
+%       \list{\@biblabel{\@arabic\c@enumiv}}%
+%            {\settowidth\labelwidth{\@biblabel{#1}}%
+%             \leftmargin\labelwidth
+%             \advance\leftmargin\labelsep
+%             %% changed!
+%                \itemindent -\leftmargin
+%                \itemsep 6pt
+%             %%%%%%%%%%%
+%             \@openbib@code
+%             \usecounter{enumiv}%
+%             \let\p@enumiv\@empty
+%             \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+%       \sloppy
+%       \clubpenalty4000
+%       \@clubpenalty \clubpenalty
+%       \widowpenalty4000%
+%       \sfcode`\.\@m}
+%      {\def\@noitemerr
+%        {\@latex@warning{Empty `thebibliography' environment}}%
+%       \endlist}
 
 
 % itens
@@ -167,34 +167,34 @@
       {\endlist}
 
 %Updated 2017. If hyperref is used, do not change references styles
-\RequirePackage{etoolbox}%
-\AtEndPreamble{\@ifpackageloaded{hyperref}
-	{%
-		\makeatletter
-		  \def\@lbibitem[#1]#2{%
-			\@skiphyperreftrue
-			\H@item[%
-			  \ifx\Hy@raisedlink\@empty
-				\hyper@anchorstart{cite.#2\@extra@b@citeb}%
-				\hyper@anchorend
-			  \else
-				\Hy@raisedlink{%
-				  \hyper@anchorstart{cite.#2\@extra@b@citeb}\hyper@anchorend
-				}%
-			  \fi
-			  \hfill
-			]%
-			\@skiphyperreffalse
-			\if@filesw
-			  \begingroup
-				\let\protect\noexpand
-				\immediate\write\@auxout{%
-				  \string\bibcite{#2}{#1}%
-				}%
-			  \endgroup%
-			\fi%
-			\ignorespaces%
-		  }% 
-		\makeatother%
-	}%
-}%
+% \RequirePackage{etoolbox}%
+% \AtEndPreamble{\@ifpackageloaded{hyperref}
+% 	{%
+% 		\makeatletter
+% 		  \def\@lbibitem[#1]#2{%
+% 			\@skiphyperreftrue
+% 			\H@item[%
+% 			  \ifx\Hy@raisedlink\@empty
+% 				\hyper@anchorstart{cite.#2\@extra@b@citeb}%
+% 				\hyper@anchorend
+% 			  \else
+% 				\Hy@raisedlink{%
+% 				  \hyper@anchorstart{cite.#2\@extra@b@citeb}\hyper@anchorend
+% 				}%
+% 			  \fi
+% 			  \hfill
+% 			]%
+% 			\@skiphyperreffalse
+% 			\if@filesw
+% 			  \begingroup
+% 				\let\protect\noexpand
+% 				\immediate\write\@auxout{%
+% 				  \string\bibcite{#2}{#1}%
+% 				}%
+% 			  \endgroup%
+% 			\fi%
+% 			\ignorespaces%
+% 		  }% 
+% 		\makeatother%
+% 	}%
+% }%
